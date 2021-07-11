@@ -1,0 +1,6 @@
+{
+    // 结尾分行,    
+    "semi": true,
+    // 启用单引号,
+    "singleQuote": true
+}
