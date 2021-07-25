@@ -6,6 +6,55 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1367300",
+      "name": "报表 表尾管理",
+      "font_class": "baobiaobiaoweiguanli",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "1471609",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "1727367",
+      "name": "28体积、空间",
+      "font_class": "tijikongjian",
+      "unicode": "e89f",
+      "unicode_decimal": 59551
+    },
+    {
+      "icon_id": "16605996",
+      "name": "商品",
+      "font_class": "shangpin",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "19100281",
+      "name": "lock",
+      "font_class": "lock",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "20733456",
+      "name": "单据",
+      "font_class": "changyongtubiao-fuben-65",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "19317221",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "f080",
+      "unicode_decimal": 61568
+    },
+    {
       "icon_id": "3851393",
       "name": "账号",
       "font_class": "zhanghao",
