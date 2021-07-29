@@ -23,17 +23,12 @@
           active-text-color="#409ff"
           :collapse="isCollapse"
           :collapse-transition="false"
-          :router='true'
+          :router="true"
           :default-active="activePath"
-         
         >
           <!-- 一级菜单 -->
           <!-- 给index动态绑定，指定单一项，动态index只能接收字符串 -->
-          <el-submenu
-            :index="item.id + ''"
-            v-for="item in menulist"
-            :key="item.id"
-          >
+          <el-submenu :index="item.id + ''" v-for="item in menulist" :key="item.id">
             <!-- 一级菜单的模板 -->
             <template slot="title">
               <!-- 图标 -->
@@ -43,10 +38,10 @@
             </template>
             <!-- 二级菜单 -->
             <el-menu-item
-              :index="'/'+subItem.path"
+              :index="'/' + subItem.path"
               v-for="subItem in item.children"
               :key="subItem.id"
-              @click="saveNavState( '/' + subItem.path)"
+              @click="saveNavState('/' + subItem.path)"
             >
               <!-- 二级菜单的模板 -->
               <template slot="title">
@@ -71,105 +66,105 @@
 </template>
 
 <script>
-export default {
-  name: 'Home',
-  data() {
-    return {
-      menulist: [],
-      activePath:'',
-      isCollapse: false,
-      iconfontObj: {
-        '125': 'iconfont icon-user',
-        '103': 'iconfont icon-tijikongjian',
-        '101': 'iconfont icon-shangpin',
-        '102': 'iconfont icon-changyongtubiao-fuben-65',
-        '145': 'iconfont icon-baobiaobiaoweiguanli'
-      }
-    };
-  },
-  created() {
-    this.getmenulist();
-    // window.sessionStorage.getItem('key')
-    this.activePath = window.sessionStorage.getItem('activePath')
-  },
-  methods: {
-    // 导航头部点击回到主路由
-    backHome(){
-      this.$router.push('/welcome')
+  export default {
+    name: "Home",
+    data() {
+      return {
+        menulist: [],
+        activePath: "",
+        isCollapse: false,
+        iconfontObj: {
+          125: "iconfont icon-user",
+          103: "iconfont icon-tijikongjian",
+          101: "iconfont icon-shangpin",
+          102: "iconfont icon-changyongtubiao-fuben-65",
+          145: "iconfont icon-baobiaobiaoweiguanli",
+        },
+      };
     },
-    // 退出登录
-    loginout() {
-      window.sessionStorage.clear();
-      this.$router.push('/login');
-      this.$message('退出成功');
+    created() {
+      this.getmenulist();
+      // window.sessionStorage.getItem('key')
+      this.activePath = window.sessionStorage.getItem("activePath");
     },
-    //点击折叠菜单
-    toggleCollapse() {
-      this.isCollapse = !this.isCollapse;
+    methods: {
+      // 导航头部点击回到主路由
+      backHome() {
+        this.$router.push("/welcome");
+      },
+      // 退出登录
+      loginout() {
+        window.sessionStorage.clear();
+        this.$router.push("/login");
+        this.$message("退出成功");
+      },
+      //点击折叠菜单
+      toggleCollapse() {
+        this.isCollapse = !this.isCollapse;
+      },
+      // 保存链接激活状态，
+      //接收 一个活跃的路径
+      saveNavState(activePath) {
+        // window.sessionStorage.setItem('key','value')
+        window.sessionStorage.setItem("activePath", activePath);
+        this.activePath = activePath;
+      },
+      async getmenulist() {
+        //请求后端menu的数据，返回promise可以用async和await简化最后解构
+        const { data: res } = await this.$http.get("/menus");
+        if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
+        this.menulist = res.data;
+        // console.log(res);
+      },
     },
-    // 保存链接激活状态，
-              //接收 一个活跃的路径
-    saveNavState(activePath) {
-      // window.sessionStorage.setItem('key','value')
-      window.sessionStorage.setItem('activePath', activePath)
-      this.activePath = activePath
-    },
-    async getmenulist() {
-      //请求后端menu的数据，返回promise可以用async和await简化最后解构
-      const { data: res } = await this.$http.get('/menus');
-      if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
-      this.menulist = res.data;
-      console.log(res);
-    }
-  }
-};
+  };
 </script>
 
 <style lang="less" scoped>
-.home-container {
-  height: 100%;
-}
-.home-head {
-  cursor: pointer;
-}
-.el-header {
-  background-color: #373d41;
-  display: flex;
-  justify-content: space-between;
-  color: #fff;
-  align-items: center;
-  font-size: 20px;
-  > div {
+  .home-container {
+    height: 100%;
+  }
+  .home-head {
+    cursor: pointer;
+  }
+  .el-header {
+    background-color: #373d41;
     display: flex;
+    justify-content: space-between;
+    color: #fff;
     align-items: center;
-    > span {
-      margin-left: 10px;
+    font-size: 20px;
+    > div {
+      display: flex;
+      align-items: center;
+      > span {
+        margin-left: 10px;
+      }
     }
   }
-}
 
-.el-aside {
-  background-color: #333744;
-  color: #333;
-  .el-menu {
-    border-right: none;
+  .el-aside {
+    background-color: #333744;
+    color: #333;
+    .el-menu {
+      border-right: none;
+    }
   }
-}
 
-.el-main {
-  background-color: #eaedf1;
-  color: #333;
-}
-.iconfont {
-  margin-right: 8px;
-}
-.toggle-button {
-  background-color: #4a5064;
-  font-size: 12px;
-  text-align: center;
-  line-height: 24px;
-  color: #fff;
-  letter-spacing: 0.2em;
-  cursor: pointer;
-}
+  .el-main {
+    background-color: #eaedf1;
+    color: #333;
+  }
+  .iconfont {
+    margin-right: 8px;
+  }
+  .toggle-button {
+    background-color: #4a5064;
+    font-size: 12px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
 </style>
