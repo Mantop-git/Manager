@@ -11,6 +11,12 @@ import './assets/font/iconfont.css'
 //导入axios
 import axios from 'axios';
 
+//导入vue-table-with-tree-grid
+import TreeTable from 'vue-table-with-tree-grid'
+Vue.component('tree-table', TreeTable)
+// Vue.use(ZkTable)
+Vue.component('tree-table', TreeTable)
+
 Vue.prototype.$http = axios
 //通过axios.intercepteors.request.use(config=>{}) 进行拦截请求相当于对当前网络请求预处理
 axios.interceptors.request.use(config => {
@@ -25,6 +31,7 @@ axios.defaults.baseURL = 'https://lianghj.top:8888/api/private/v1/'
 // 一个this.$http.post(url,) 另一个this.axios.post(url,)
 
 Vue.config.productionTip = false
+
 
 new Vue({
   router,
