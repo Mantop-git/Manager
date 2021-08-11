@@ -32,6 +32,9 @@ import {
     Tree,
     Select,
     Option,
+    Alert,
+    Tabs,
+    TabPane,
     Cascader
 } from 'element-ui';
 Vue.prototype.$message = Message;
@@ -67,3 +70,6 @@ Vue.use(Tree);
 Vue.use(Option);
 Vue.use(Select);
 Vue.use(Cascader);
+Vue.use(Alert);
+Vue.use(Tabs);
+Vue.use(TabPane);

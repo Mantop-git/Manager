@@ -39,8 +39,7 @@
         </template>
         <!-- 排序 -->
         <!-- v-slot:order=scope -->
-        <template v-slot:order='scope'>
-
+        <template v-slot:order="scope">
           <el-tag size="mini" v-if="scope.row.cat_level === 0">一级</el-tag>
           <el-tag type="success" size="mini" v-else-if="scope.row.cat_level === 1"
             >二级</el-tag
@@ -48,7 +47,7 @@
           <el-tag type="warning" size="mini" v-else>三级</el-tag>
         </template>
         <!-- 操作 -->
-        <template v-slot:option='scope'>
+        <template slot="option">
           <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
           <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
         </template>
@@ -260,6 +259,10 @@
 </script>
 
 <style lang="less" scoped>
+  .el-breadcrumb {
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
   .el-row {
     margin-bottom: 15px;
   }
