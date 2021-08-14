@@ -81,7 +81,7 @@
         <el-table-column prop="cat_name" label="参数名称" width="500px">
         </el-table-column>
         <el-table-column label="操作" width="500px">
-          <template v-slot="scope">
+          <template >
             <el-button type="primary" size="mini" icon="el-icon-edit">编辑</el-button>
             <el-button type="danger" size="mini" icon="el-icon-delete">删除</el-button>
           </template>

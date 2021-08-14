@@ -1,15 +1,12 @@
 <template>
-    <div>
-        <h3>welcome</h3>
-    </div>
+  <div>welocome</div>
 </template>
 
 <script>
-    export default {
-        name:'welcome',
-    }
+  export default {
+      name:'Welcome',
+      
+  };
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>

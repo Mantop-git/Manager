@@ -8,6 +8,8 @@ import Rights from 'components/power/Rights.vue'
 import Roles from 'components/power/Roles.vue'
 import Cate from 'components/goods/Cate.vue'
 import Params from 'components/goods/Params.vue'
+import List from 'components/goods/List.vue'
+import Add from 'components/goods/Add.vue'
 
 // const Login = () => import( '../components/Login')
 Vue.use(VueRouter)
@@ -26,7 +28,7 @@ const routes = [
     path: '/home',
     component: Home,
     redirect: '/welcome',
-    children: [
+    children: [ 
       {
         //注册路由以后一定要记得加占位符
         path: '/welcome',
@@ -53,9 +55,21 @@ const routes = [
       {
         path:'/params',
         component:Params
+      },
+      //商品列表
+      {
+        path: '/goods',
+        component: List
+      },
+      //商品添加
+      {
+        path: '/goods/add',
+        component: Add
+
       }
     ]
   },
+
 ]
 
 const router = new VueRouter({

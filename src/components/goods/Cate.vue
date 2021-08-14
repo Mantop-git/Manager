@@ -234,7 +234,7 @@
       //点击确定添加新的分类
       addCate() {
         //对当前form表单进行效验看是否符合格式用validate函数，参数为一个回调函数，若不传入回调函数，则会返回一个 promise
-        this.$refs.addformRef.validate(async (valid) => {
+        this.$refs.addformRef.validate(async valid => {
           //如果valid校验失败直接返回空，无法进行下一步
           if (!valid) return;
           //否则进行网络请求

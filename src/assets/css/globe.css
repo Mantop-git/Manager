@@ -12,3 +12,16 @@ body,
     padding: 0%;
     min-width: 1266px;
 }
+/* 修改element ui 组件下的元素样式只能用全局样式 */
+.el-step__title {
+    font-size: 12px;
+}
+/* el组件中Cascader 数据过多时会有不显示滚动栏的情况 */
+        /* 把它高度显示的小就行了 它默认 100% */
+.el-scrollbar__wrap{
+    height: 200px;
+}
+/* edit依赖的样式 */
+.ql-editor{
+    height: 200px !important;
+}
