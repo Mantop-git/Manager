@@ -42,6 +42,8 @@ import {
     CheckboxButton,
     CheckboxGroup,
     Upload,
+    Timeline,
+    TimelineItem,
 
 } from 'element-ui';
 Vue.prototype.$message = Message;
@@ -86,3 +88,5 @@ Vue.use(CheckboxButton);
 Vue.use(Steps);
 Vue.use(CheckboxGroup);
 Vue.use(Upload);
+Vue.use(TimelineItem);
+Vue.use(Timeline);
