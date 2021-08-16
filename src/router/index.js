@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../components/Login.vue'
-import Home from '../components/Home.vue'
-import Welcome from '../components/Welcome.vue'
+import Login from 'components/login/Login.vue'
+import Home from 'components/home/Home.vue'
+import Welcome from 'components/welcome/Welcome.vue'
 import Users from 'components/user/Users.vue'
 import Rights from 'components/power/Rights.vue'
 import Roles from 'components/power/Roles.vue'
@@ -11,6 +11,7 @@ import Params from 'components/goods/Params.vue'
 import List from 'components/goods/List.vue'
 import Add from 'components/goods/Add.vue'
 import Order from 'components/order/Order.vue'
+import Reports from 'components/report/Reports.vue'
 
 // const Login = () => import( '../components/Login')
 Vue.use(VueRouter)
@@ -73,6 +74,11 @@ const routes = [
         path: '/orders',
         component: Order
       },
+      //数据统计
+      {
+        path:'/reports',
+        component: Reports
+      }
     ]
   },
 
